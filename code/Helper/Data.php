@@ -1,5 +1,5 @@
 <?php
-class Digidennis_QuickpayDolink extends Mage_Core_Helper_Abstract
+class Digidennis_QuickpayDolink_Helper_Data extends Mage_Core_Helper_Abstract
 {
     protected $apiUrl = "https://api.quickpay.net";
     protected $apiVersion = 'v10';
