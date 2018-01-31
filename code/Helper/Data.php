@@ -20,7 +20,7 @@ class Digidennis_QuickpayDolink_Helper_Data extends Mage_Core_Helper_Abstract
             'Content-Type'   => 'application/json'
         );
         $client->setHeaders($headers);
-        $client->setUri($this->apiUrl . "?order_id={$order->getIncrementId()}");
+        $client->setUri($this->apiUrl . "/payments?order_id={$order->getIncrementId()}");
         $client->setMethod(Zend_Http_Client::GET);
         $request = $client->request();
 
@@ -29,9 +29,9 @@ class Digidennis_QuickpayDolink_Helper_Data extends Mage_Core_Helper_Abstract
         }
 
         $result = json_decode($request->getBody())[0];
-        if( $result && count($result) && $result['state'] === 'initial' && count($result['link']))
+        if( $result &&  $result->state === 'initial' && isset($result->link->url))
         {
-            return $result['link']['url'];
+            return $result->link->url;
         }
         return '';
     }
