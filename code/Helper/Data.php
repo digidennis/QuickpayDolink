@@ -8,7 +8,7 @@ class Digidennis_QuickpayDolink_Helper_Data extends Mage_Core_Helper_Abstract
     protected $format = "application/json";
 
 
-    protected function paymentLink($order)
+    public function paymentLink($order)
     {
         $storeId = Mage::app()->getStore()->getStoreId();
         $this->apiKey = Mage::getStoreConfig('payment/quickpaypayment_payment/apikey', $storeId);
