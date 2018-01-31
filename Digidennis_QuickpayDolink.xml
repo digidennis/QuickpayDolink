@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Digidennis_QuickpayDolink>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Digidennis_QuickpayDolink>
+    </modules>
+</config>
