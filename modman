@@ -1,3 +1,2 @@
 code                                app/code/local/Digidennis/QuickpayDolink/
 Digidennis_QuickpayDolink.xml       app/etc/modules/Digidennis_QuickpayDolink.xml
-frontend/template/*                 app/design/frontend/base/default/template/digidennis/quickpaydolink/

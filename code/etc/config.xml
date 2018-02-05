@@ -7,30 +7,26 @@
         </Digidennis_QuickpayDolink>
     </modules>
 
-    <!--adminhtml>
-        <events>
-            <sales_order_shipment_save_before>
-                <observers>
-                    <digidennis_dkshipping_sales_order_shipment_save_before>
-                        <type>singleton</type>
-                        <class>digidennis_dkshipping/observer</class>
-                        <method>salesOrderShipmentSaveBefore</method>
-                    </digidennis_dkshipping_sales_order_shipment_save_before>
-                </observers>
-            </sales_order_shipment_save_before>
-        </events>
-    </adminhtml-->
-
     <global>
         <models>
             <digidennis_quickpaydolink>
                 <class>Digidennis_QuickpayDolink_Model</class>
             </digidennis_quickpaydolink>
+            <quickpaypayment>
+                <rewrite>
+                    <observer>Digidennis_QuickpayDolink_Model_Observer</observer>
+                </rewrite>
+            </quickpaypayment>
         </models>
         <blocks>
             <digidennis_quickpaydolink>
                 <class>Digidennis_QuickpayDolink_Block</class>
             </digidennis_quickpaydolink>
+            <quickpaypayment>
+                <rewrite>
+                    <info_quickpay>Digidennis_QuickpayDolink_Block_Info_Quickpay</info_quickpay>
+                </rewrite>
+            </quickpaypayment>
         </blocks>
         <helpers>
             <digidennis_quickpaydolink>
@@ -38,4 +34,16 @@
             </digidennis_quickpaydolink>
         </helpers>
     </global>
+
+    <frontend>
+        <routers>
+            <quickpaypayment>
+                <args>
+                    <modules>
+                        <Digidennis_QuickpayDolink before="Quickpay_Payment">Digidennis_QuickpayDolink</Digidennis_QuickpayDolink>
+                    </modules>
+                </args>
+            </quickpaypayment>
+        </routers>
+    </frontend>
 </config>

@@ -3,6 +3,9 @@
         <Digidennis_QuickpayDolink>
             <active>true</active>
             <codePool>local</codePool>
+            <depends>
+                <Quickpay_Payment/>
+            </depends>
         </Digidennis_QuickpayDolink>
     </modules>
 </config>

@@ -33,6 +33,11 @@ class Digidennis_QuickpayDolink_Helper_Data extends Mage_Core_Helper_Abstract
         {
             return $result->link->url;
         }
-        return '';
+        return false;
+    }
+
+    public function doLink($order)
+    {
+        return Mage::getUrl('quickpaypayment/payment/dolink', array('link_id' => base64_encode($order->getIncrementId())));
     }
 }
