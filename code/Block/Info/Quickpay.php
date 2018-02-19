@@ -69,14 +69,14 @@ class Digidennis_QuickpayDolink_Block_Info_Quickpay extends Quickpay_Payment_Blo
                     if( $this->getInfo()->getOrder()->getStatus() !== Mage_Sales_Model_Order::STATE_CANCELED &&
                         $this->getInfo()->getOrder()->getStatus() !== Mage_Sales_Model_Order::STATE_COMPLETE
                     )
-                        $res .= "<p><a class=\"btn btn-default\" href=\"{$this->getTheLink()}\" title=\"Betal for din ordre\" >Betal for din ordre</a></p>";
+                        $res .= "<p><a class=\"btn btn-default\" href=\"{$this->getTheLink()}\" title=\"Betal din ordre her\" >Betal din ordre her</a></p>";
                 }
             } else {
                 $res .=  "<p>" . $this->__('Der er endnu ikke registreret nogen betaling for denne ordre.') . "</p>";
                 if( $this->getInfo()->getOrder()->getStatus() !== Mage_Sales_Model_Order::STATE_CANCELED &&
                     $this->getInfo()->getOrder()->getStatus() !== Mage_Sales_Model_Order::STATE_COMPLETE
                 )
-                    $res .= "<p><a class=\"btn btn-default\" href=\"{$this->getTheLink()}\" title=\"Betal for din ordre\" >Betal for din ordre</a></p>";
+                    $res .= "<p><a class=\"btn btn-default\" href=\"{$this->getTheLink()}\" title=\"Betal din ordre her\" >Betal din ordre her</a></p>";
             }
         }
 
