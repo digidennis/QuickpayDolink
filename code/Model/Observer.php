@@ -9,10 +9,14 @@ class Digidennis_QuickpayDolink_Model_Observer extends Quickpay_Payment_Model_Ob
      */
     public function onCheckoutSubmitAllAfter(Varien_Event_Observer $observer)
     {
+
         /** @var Mage_Sales_Model_Order $order */
         $order = $observer->getEvent()->getOrder();
-        $payment = Mage::getSingleton('quickpaypayment/payment');
 
+        if( $order->getPayment()->getMethod() != 'quickpaypayment_payment' )
+            return;
+
+        $payment = Mage::getSingleton('quickpaypayment/payment');
         $parameters = array(
             "agreement_id"                 => $payment->getConfigData("agreementid"),
             "amount"                       => $order->getTotalDue() * 100,
